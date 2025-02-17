@@ -3,9 +3,9 @@ FROM openjdk:17-jdk-slim
 
 # Set the working directory
 WORKDIR /app
-
+RUN mvn clean package -DskipTests
 # Copy the built jar from target
-COPY --from=build /target/*.jar app.jar
+COPY target/*.jar app.jar
 
 # Expose port (Render uses 8080 by default)
 EXPOSE 8080
