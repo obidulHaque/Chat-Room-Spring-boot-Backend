@@ -5,7 +5,7 @@ FROM openjdk:17-jdk-slim
 WORKDIR /app
 
 # Copy the built jar from target
-COPY target/*.jar app.jar
+COPY --from=build /target/*.jar app.jar
 
 # Expose port (Render uses 8080 by default)
 EXPOSE 8080
